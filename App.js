@@ -1,12 +1,11 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import * as React from 'react'
 
-import AppNavigator from './src/navigation/app-navigation';
+import AppNavigator from './src/navigation/app-navigation'
 
-function App() {
+function App () {
   return (
     <AppNavigator />
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,13 +1,15 @@
+import { SERVER_ADDRESS, PORT } from '@env'
+
 export const FETCH_HOUSES = 'FETCH_HOUSES'
 export const CREATE_HOUSES = 'CREATE_HOUSES'
 
 export const fetchHouses = () => {
   return async dispatch => {
     // logic to fetch houses from API
-    const result = await fetch('http://192.168.100.11:3000/api/houses')
+    const result = await fetch(`${SERVER_ADDRESS}:${PORT}/api/houses`)
+
     const resultData = await result.json()
 
-    //
     dispatch({
       type: FETCH_HOUSES,
       payload: resultData
@@ -17,7 +19,7 @@ export const fetchHouses = () => {
 
 export const createHome = ({ title, image, homeType, price, yearBuilt, address, description }) => {
   return async dispatch => {
-    const response = await fetch('http://localhost:3000/api/houses', {
+    const response = await fetch(`${SERVER_ADDRESS}:${PORT}/api/houses`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
